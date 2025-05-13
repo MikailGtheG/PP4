@@ -58,7 +58,76 @@ In this exercise you will:
 # 1) The exact ssh command you ran
 # 2) A detailed, step-by-step explanation of what happened at each stage
 ```
+# SSH Connection to Remote Server – Step-by-Step Explanation
 
+## 1. SSH Command Used
+
+```bash
+ssh ubuntu@chat.erarslan.tk
+```
+
+I used this command from my local Linux terminal (WSL in my case). I had already added my public SSH key to the remote server, so I was not asked for a password.
+
+---
+
+## 2. What Happened – Step by Step
+
+### Step 1: TCP Connection to Port 22
+
+After I ran the command, my computer opened a **TCP connection** to the server `chat.erarslan.tk` on **port 22**, which is the default port for SSH.
+
+This is done using the **TCP 3-way handshake** (SYN, SYN-ACK, ACK), establishing a reliable connection between my local machine and the SSH server.
+
+---
+
+### Step 2: SSH Protocol Handshake
+
+Once the TCP connection was established, the **SSH protocol handshake** started.
+
+At this stage:
+- Both client and server agreed on which **encryption algorithms**, **key exchange method**, and **compression algorithms** to use.
+- The server sent me its **public host key**.
+- My SSH client checked this key against the list of known hosts to verify the server's identity.
+- Then, a **session key** was generated using a key exchange method like **ECDH** or **Curve25519**, so all further communication would be encrypted.
+
+---
+
+### Step 3: Authentication (Public Key)
+
+Because I had previously uploaded my **public key** to the server (`~/.ssh/authorized_keys`), the authentication used the **public key method**:
+
+- The server sent a challenge.
+- My client signed it with my **private key**.
+- The server verified it with my public key.
+- As a result, I was logged in without entering a password.
+
+---
+
+### Step 4: Shell Allocation
+
+Once authenticated, the server gave me access to an **interactive shell session** (in this case, Bash). I was now logged in as the `ubuntu` user on the remote machine.
+
+The prompt changed to something like:
+
+```bash
+ubuntu@home-server:~$
+```
+
+I could now run commands directly on the remote server.
+
+---
+
+### Step 5: Exit the Session
+
+After I finished my tasks, I exited the remote shell with:
+
+```bash
+exit
+```
+
+This closed the SSH session and ended the TCP connection cleanly.
+
+---
 ---
 
 ### Task 2: Ed25519 Key Pair
