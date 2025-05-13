@@ -157,6 +157,37 @@ This closed the SSH session and ended the TCP connection cleanly.
 # 2) The file paths of the generated keys
 # 3) Your written explanation (3–5 sentences) of the signature process
 ```
+# SSH Key Generation and Signature Process Explanation
+
+## 1. SSH Key Generation Command Used
+
+```bash
+ssh-keygen -t ed25519 -C "mikailerarslan@chat.erarslan.tk"
+```
+
+I ran this command from my local terminal to generate an Ed25519 SSH key pair with my email as a comment.
+
+---
+
+## 2. File Paths of the Generated Keys
+
+By accepting the default location, the key pair was saved to:
+
+- **Private key**: `C:\Users\Mikail Erarslan/.ssh/id_ed25519`
+- **Public key**: `C:\Users\Mikail Erarslan/.ssh/id_ed25519.pub`
+
+---
+
+## 3. Signature Process – Written Explanation
+
+- The **private key** remains on my local machine and is used to **digitally sign challenges** sent by the SSH server during authentication.
+- The **public key**, which I installed on the remote server, is used to **verify the authenticity** of the signature.
+- The server can confirm that the signature is valid **without ever seeing or learning the private key**, thanks to asymmetric cryptography.
+- **Ed25519** is preferred because it is **faster**, **more secure**, and **smaller** than older algorithms like RSA, with strong resistance against known cryptographic attacks.
+- This method ensures a highly secure, passwordless login system for accessing remote servers.
+
+---
+
 
 ---
 
