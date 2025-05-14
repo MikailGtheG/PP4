@@ -228,7 +228,40 @@ By accepting the default location, the key pair was saved to:
 # 1) The full contents of your ~/.ssh/config
 # 2) A short explanation (3–4 sentences) of how the config simplifies connections
 ```
+# SSH Config File – Simplifying SSH Connections
 
+## 1. Full Contents of `~/.ssh/config`
+
+```ssh-config
+Host chat
+    HostName chat.erarslan.tk
+    User ubuntu
+    IdentityFile ~/.ssh/id_ed25519
+```
+
+This configuration allows me to connect to the server with a short alias.
+
+---
+
+## 2. Explanation – How `~/.ssh/config` Simplifies Connections
+
+The `~/.ssh/config` file allows SSH to use **custom aliases** (defined by `Host`) for remote connections. When I type `ssh chat`, SSH reads this file, finds the matching `Host chat` block, and uses the specified `HostName`, `User`, and `IdentityFile` for the connection.
+
+- `Host` is the **alias** I can use in the terminal.
+- `HostName` is the **real server address**.
+- This avoids typing long, repetitive commands like:
+
+```bash
+ssh ubuntu@chat.erarslan.tk -i ~/.ssh/id_ed25519
+```
+
+That entire command is now simplified to just:
+
+```bash
+ssh chat
+```
+
+By defining multiple entries, I can manage multiple servers with short, easy-to-remember names. This makes my workflow faster, cleaner, and less error-prone.
 ---
 
 ### Task 4: SCP File Transfers
