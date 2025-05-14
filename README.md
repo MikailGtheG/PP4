@@ -377,7 +377,57 @@ SCP (**Secure Copy Protocol**) initiates an **SSH session** in the background to
 # 2) The lines you added to ~/.bashrc or ~/.profile
 # 3) Your explanation (3–5 sentences) of shell init files and sourcing vs. executing
 ```
+```markdown
+# Login Shell Script & Profile Setup
+
+## 1) Contents of `~/login_tasks.sh`
+
+```bash
+#!/usr/bin/env bash 
+
+cat << "KEY"
+      _______
+    /         \
+   |           |
+    \_________/
+        ||
+        ||
+        ||
+        ||
+        ||
+        ||____
+        ||    \
+        ||     |
+        ||____/
+
+Welcome to Erarslan Technologies, ubuntu! Today is Wed May 14 16:17:01 UTC 2025.
+KEY
+
+uptime
+ls ~/projects
+```
+
+---
+
+## 2) Line Added to `~/.bashrc`
+
+```bash
+source ~/login_tasks.sh
+```
+
+---
+
+## 3) Explanation – Shell Init Files & Sourcing vs. Executing
+
+- `~/.bashrc` is executed for **interactive non-login shells**, such as when opening a new terminal tab or session inside an already logged-in shell.  
+- `~/.profile` is used for **login shells**, such as when logging in via SSH or TTY.  
+- By adding `source ~/login_tasks.sh` to `.bashrc`, the script is automatically run at the start of every new terminal session, keeping it interactive.
+
+**Sourcing** (`source script.sh`) runs the script **in the current shell context**, allowing variables and changes to persist in the environment.  
+**Executing** (e.g., `./script.sh`) runs the script in a **subshell**, which does not affect the current shell's environment.
 
 ---
 
 **Remember:** Stop working after **90 minutes** and record where you stopped.
+
+Total used time: 55 Minutes
