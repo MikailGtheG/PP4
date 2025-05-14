@@ -299,6 +299,38 @@ By defining multiple entries, I can manage multiple servers with short, easy-to-
 # 2) Any flags or options used
 # 3) A brief explanation (2–3 sentences) of scp’s mechanism
 ```
+# SCP File Transfers – Task 4
+
+## 1. SCP Commands Used
+
+```bash
+# Local → Remote
+scp .ssh/testing.txt ubuntu@chat.erarslan.tk:~/.ssh
+
+# Remote → Local
+scp ubuntu@chat.erarslan.tk:~/.ssh/testing_remote.txt ./.ssh
+
+# Remote → Remote (on same host)
+scp ubuntu@chat.erarslan.tk:~/.ssh/testing_remote.txt ubuntu@chat.erarslan.tk:~
+```
+
+---
+
+## 2. Flags or Options Used
+
+- No additional flags were required for these specific transfers.
+- The `-r` flag is only necessary for copying directories recursively.
+- The default port 22 was used, so no `-P` flag was needed.
+
+---
+
+## 3. SCP Mechanism – Short Explanation
+
+SCP (**Secure Copy Protocol**) initiates an **SSH session** in the background to securely transfer files between hosts. It ensures **confidentiality and integrity** by encrypting all transferred data, including filenames and file content. Authentication and key verification are handled exactly like standard SSH, making it a secure and reliable way to move files across systems.
+
+---
+
+> After each transfer, I verified the file with `ls -la` to confirm matching **timestamps** and **file sizes**, ensuring a successful copy.
 
 ---
 
