@@ -260,8 +260,8 @@ That entire command is now simplified to just:
 ```bash
 ssh chat
 ```
-
 By defining multiple entries, I can manage multiple servers with short, easy-to-remember names. This makes my workflow faster, cleaner, and less error-prone.
+
 ---
 
 ### Task 4: SCP File Transfers
