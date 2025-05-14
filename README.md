@@ -377,7 +377,7 @@ SCP (**Secure Copy Protocol**) initiates an **SSH session** in the background to
 # 2) The lines you added to ~/.bashrc or ~/.profile
 # 3) Your explanation (3–5 sentences) of shell init files and sourcing vs. executing
 ```
-```markdown
+
 # Login Shell Script & Profile Setup
 
 ## 1) Contents of `~/login_tasks.sh`
